@@ -7,9 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('server:server');
 var http = require('http');
+const bluebird = require('bluebird');
 const redis = require('redis');
 
 //connect to redis db
+bluebird.promisifyAll(redis.RedisClient.prototype);
+bluebird.promisifyAll(redis.Multi.prototype);
+
 const redisClient = redis.createClient({
   host: '127.0.0.1',
   port: 6379
@@ -23,9 +27,9 @@ redisClient.on('ready', ()=>{
   console.log("Successfully connected to redis database");
 })
 
-const usersR = require('../routes/users');
-
-usersR.setClient(redisClient);
+//PROSLEDI REDIS KLIJENTA SVUDA GDE SE KORISTI
+const sessionsR = require('../routes/sessions');
+sessionsR.setClient(redisClient);
 
 /**
  * Get port from environment and store in Express.

@@ -6,7 +6,7 @@ var logger = require('morgan');
 
 //Ovde idu putanje
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var sessionsRouter = require('./routes/sessions');
 
 var app = express();
 
@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter.router);
+app.use('/sessions', sessionsRouter.router);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
