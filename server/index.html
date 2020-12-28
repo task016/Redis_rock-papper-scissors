@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>HELLO</title>
+    </head>
+    <body>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+            socket.on('sessionJoined',()=>{
+                console.log('Client has joined the session');
+            });
+        </script>
+    </body>
+</html>
