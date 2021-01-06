@@ -5,12 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var debug = require('debug')('server:server');
 var http = require('http');
+var cors = require('cors');
 const bluebird = require('bluebird');
 const redis = require('redis');
 const socketIo = require('socket.io');
 
 var app = express();
 
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -236,7 +238,7 @@ rclient.on('ready', ()=>{
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = normalizePort(process.env.PORT || '8000');
 app.set('port', port);
 
 /**
