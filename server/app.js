@@ -248,7 +248,11 @@ app.set('port', port);
 const server = http.createServer(app);
 
 //connect server to socket.io
-const io = socketIo(server);
+const io = socketIo(server, {
+  cors: {
+    origin: '*',
+  }
+});
 
 io.on('connection', socket => {
   console.log('socket connected');
