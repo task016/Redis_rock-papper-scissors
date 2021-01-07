@@ -1,0 +1,18 @@
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url(../../Assets/Images/rps.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+#responsive-navbar-nav {
+  justify-content: center;
+}
+
+.nav-link {
+  margin: 0px 3px;
+}
+
+.nav-link {
+  margin: 0px 5px;
+}
